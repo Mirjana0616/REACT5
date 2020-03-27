@@ -1,5 +1,0 @@
-
-export const FILTER_DATA_UPDATE = 'FILTER_DATA_UPDATE';
-export const MORE_UPDATE = 'MORE_UPDATE';
-export const TO_WATCH_UPDATE = 'TO_WATCH_UPDATE';
-export const WATCHED_UPDATE = 'WATCHED_UPDATE';

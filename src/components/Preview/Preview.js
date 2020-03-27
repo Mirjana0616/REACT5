@@ -6,43 +6,47 @@ import {Link} from 'react-router-dom';
 class Preview extends Component{
 
 	render() {
-		const {actors, director, plot, genre, poster, released, runtime, title, rating} = this.props;
+		const {flightNumber, launchYear, missionName, moreDetails, launchSuccess, nationality, flightPic, missionSimbol} = this.props;
 		return (
 			<div className="show">
 				<section className="preview">
-					<p>Movie preview</p>
+					<p>Mission Preview</p>
+					
+					<span className="first">
+						<strong>Mission name:</strong> {missionName}
+					</span>
+					<span>
+						<strong>Flight number:</strong> {flightNumber}
+					</span>
+					<span>
+						<strong>Launch Year:</strong> {launchYear}
+					</span>
+					<span>
+						<strong>Nationality:</strong> {nationality} 
+					</span>
+					<span>
+						<strong>Launch success:</strong> {launchSuccess ? "Successful" : "Failed"} 
+					</span>
+				
+					<span>
+						<strong>Photos:</strong>
+					</span>
 
 					<div className="pics">
-						<img src={poster} alt="poster"/>
+						{flightPic.map( pic => {
+							return (
+								<a href={pic} target="_blank" key={uuid()} rel="noopener noreferrer">
+									<img src={pic} alt="flightPic"/>
+								</a>
+							)
+						})}
 					</div>
 
-					<div className="info">
-						<span className="first">
-							<strong>Title:</strong> {title}
-						</span>
-						<span>
-							<strong>Released date:</strong> {released}
-						</span>
-						<span>
-							<strong>Runtime:</strong> {runtime}
-						</span>
-						<span>
-							<strong>Genre:</strong> {genre} 
-						</span>
-						<span>
-							<strong>Director:</strong> {director} 
-						</span>
-						<span>
-							<strong>Actors:</strong> {actors} 
-						</span>
-						<span>
-							<strong>Plot:</strong> {plot} 
-						</span>
+					<span>
+						<strong>Details:</strong> {moreDetails} 
+					</span>
 
-						<span className="rating">{rating}</span>
-
-					</div>
-
+					<img src={missionSimbol} alt="missionSimbol" />
 					<Link to="/">
 						<button>X</button>
 					</Link>

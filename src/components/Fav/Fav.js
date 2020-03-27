@@ -1,45 +1,32 @@
 import React, {Component} from 'react';
 import './Fav.scss';
-import trash1 from '../../images/trash1.png';
+import moreDet from '../../images/info.png';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import * as actionCreators from '../../store/ActionCreators';
 
 class Fav extends Component{
 
 	render() {
-		const {title, genre, rating, uniqueId, element, imdbID} = this.props;
-		const preview = "/" + imdbID;
+		const {missionName, flightNumber, launchYear, moreDetails, imageLink} = this.props;
 		return (
 			<div className="favy">
 				<span>
-					<strong>Title:</strong><br/> &rarr;  
-					<Link to={preview}> 
-						<span onClick={() => this.props.onMoreUpdate(uniqueId)}> {title}</span> 
-					</Link>
+					<strong>Flight number:</strong><br/> {flightNumber} 
 				</span>
 				<span>
-					<strong>Genre:</strong><br/> &rarr; {genre} 
+					<strong>Mission name:</strong><br/> {missionName} 
 				</span>
-				<span className="rating">{rating}</span>
-				
-				<div className="trash" onClick={() => this.props.onDelete(uniqueId)}>
-					<img src={trash1} alt="trash"/>
-				</div>
+				<span>
+					<strong>Year:</strong><br/> {launchYear} 
+				</span>
+				<img src={imageLink} alt="link"/>
+				<Link to="/preview">
+					<div className="more" onClick={() => moreDetails(flightNumber)}>
+						<img src={moreDet} alt="more" />
+					</div>
+				</Link>
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = state => {
- return {}
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onMoreUpdate : uniqueId => dispatch(actionCreators.getMoreWatched(uniqueId)),
-    onDelete : databaseID => dispatch(actionCreators.deleteWatchedMovie(databaseID)),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Fav);
+export {Fav};

@@ -1,17 +1,11 @@
 
 class Communicators {
 
-	static baseURL = 'https://movies-22220.firebaseio.com/movies';
-	static watchedURL = 'https://movies-22220.firebaseio.com/watched';
+	static baseURL = 'https://spacex-74dbe.firebaseio.com/spacex';
 
 	static Fetch = () => {
 		return fetch(`${Communicators.baseURL}.json`)
-	  		   .then( response => response.json())
-	}
-
-	static FetchWatched = () => {
-		return fetch(`${Communicators.watchedURL}.json`)
-	  		   .then( response => response.json())
+	  		   .then( response => response.json());
 	}
 
 	static Put = (element) => {
@@ -21,41 +15,11 @@ class Communicators {
 		        })
 	}
 
-	static Post = (element) => {
-		return fetch(`${Communicators.baseURL}.json`, {
-			      method: 'POST',
-			      body: JSON.stringify(element)
-		        })
-	}
-
-	static PostWatched = (element) => {
-		return fetch(`${Communicators.watchedURL}.json`, {
-			      method: 'POST',
-			      body: JSON.stringify(element)
-		        })
-	}
-
-	static Delete = (elementID) => {
-		return fetch(`${Communicators.baseURL}/${elementID}.json`, {
-			      method: 'DELETE',
-		        })
-	}
-
-	static DeleteWatched = (elementID) => {
-		return fetch(`${Communicators.watchedURL}/${elementID}.json`, {
-			      method: 'DELETE',
-		        })
-	}
-
-	static More = (databaseID) => {
-		return fetch(`${Communicators.baseURL}/${databaseID}.json`)
+	static More = (flightNumber) => {
+		return fetch(`https://api.spacexdata.com/v3/launches/${flightNumber}.json`)
 	  		   .then( response => response.json())
 	}
 
-	static MoreWatched = (databaseID) => {
-		return fetch(`${Communicators.watchedURL}/${databaseID}.json`)
-	  		   .then( response => response.json())
-	}
 }
 
 export { Communicators };

@@ -11,29 +11,10 @@ body {
 	position: relative;
     padding: 0;
     margin: 0;
-    background: url('./images/background.jpg');
+    background: url('./images/rocket.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    .reset {
-	    position: absolute;
-	    width: 140px;
-	    height: 50px;
-	    right: 100px;
-	    top: 100px;
-        color: white;
-	    font-size: 19px;
-	    text-shadow: 1px 1px 2px black;
-	    padding-top: 3px;
-	    img {
-    	    display: block;
-		    height: 65%;
-		    cursor: pointer;
-		    position: absolute;
-		    right: 0;
-		    top: 0;
-	    }
-    }
 	button{
 		&.add {
 		    position: fixed;
@@ -71,34 +52,5 @@ body {
 		    	background-color: #698231;
 		    }
 		}
-	}
-	.dropdown {
-        left: 749px;
-	    z-index: 6;
-	    top: 48px;
-	    height: 200px;
-	    width: 371px;
-	    background-color: red;
-	    position: absolute;
-	    overflow-y: scroll;
-	    >div {
-    	    background-color: wheat;
-		    text-align: center;
-		    height: 35px;
-	        border-bottom: 1px solid black;
-            padding-top: 5px;
-	        span {
-        	    border: 1px solid black;
-			    background-color: green;
-			    height: 26px;
-			    width: 26px;
-			    right: 5px;
-			    display: inline-block;
-			    position: absolute;
-			    &:hover {
-			    	background-color: white;
-			    }
-	        }
-	    }
 	}
 }
